@@ -30,7 +30,6 @@ export class GetPokemonsService {
 
 
 
-
   getPokemons(): void {
     this.http.get('https://pokeapi.co/api/v2/pokemon/').subscribe((res) => {
       console.log('res 2', res);

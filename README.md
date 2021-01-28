@@ -1,5 +1,11 @@
 # PruebaCuscatlan
 
+
+## About
+PokeDex that implements `pokeapi.co`
+create by Johel España
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.0.
 
 ## Development server
