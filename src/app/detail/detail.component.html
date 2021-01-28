@@ -1,0 +1,65 @@
+<div class="col-12" style="border: solid 1px #000; height: auto; background-color:whitesmoke;">
+
+    <label><b>{{detail.name.toString().toUpperCase()}}</b></label>
+    <div class="text-center">
+        <img class="col-md-10" src={{detail.sprites.front_default}}/>
+    </div>
+    
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td colspan="1"> <b>Base stat</b></td>
+            </tr>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">base_stat</th>
+                <th scope="col">name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let stat of detail.stats; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{stat.base_stat}}</td>
+                <td>{{stat.stat.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td colspan="1"> <b>Types</b></td>
+            </tr>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let type of detail.types; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{type.type.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td colspan="1"> <b>Moves</b></td>
+            </tr>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">move</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let move of detail.moves; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{move.move.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
