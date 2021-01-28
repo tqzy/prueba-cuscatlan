@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSliderModule } from '@angular/material/slider';
+import {MatListModule} from '@angular/material/list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ItemPokemonComponent } from './item-pokemon/item-pokemon.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -33,6 +34,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     TopBarComponent
   ],
   imports: [
+    MatListModule,
     MatSliderModule,
     BrowserAnimationsModule,
     MatSelectModule,

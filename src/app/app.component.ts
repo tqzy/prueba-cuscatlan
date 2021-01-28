@@ -19,7 +19,8 @@ export class AppComponent {
   virtualScroll!: CdkVirtualScrollViewport;
 
 
-
+  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+  firsTime: boolean = true;
 
   title = 'prueba-cuscatlan';
   pokes = <any>[];
@@ -70,10 +71,7 @@ export class AppComponent {
   onKey(value: string) {
     console.log(value)
 
-
-
-
-    this.pokemons.getPokemon('https://pokeapi.co/api/v2/pokemon/' + value).subscribe(res => {
+    this.pokemons.getPokemon('https://pokeapi.co/api/v2/pokemon/' + value.toLocaleLowerCase()).subscribe(res => {
       console.log('here', res);
       //this.pokes = <any>[];
       if (Object.keys(res).length === 0) {
@@ -155,6 +153,7 @@ export class AppComponent {
           //this.pokes.push(res);
           if (res.order === 1) {
             res.selected = true;
+            this.detail = res;
           } else {
             res.selected = false;
           }
@@ -180,19 +179,20 @@ export class AppComponent {
 
   onNotify(pokemon: any) {
 
-    var temp: any = [];
-    temp = [...temp, this.pokes]
-    this.pokes = <any>[];
+    // var temp: any = [];
+    // temp = [...temp, this.pokes]
+    // this.pokes = <any>[];
 
-    for (let i = 0; i < temp[0].length; i++) {
-      if (temp[0][i].name == pokemon.name) {
-        temp[0][i].selected = true;
+    for (let i = 0; i < this.pokes.length; i++) {
+      if (this.pokes[i].name == pokemon.name) {
+        console.log('kskskd');
+        this.pokes[i].selected = true;
       } else {
-        temp[0][i].selected = false;
+        this.pokes[i].selected = false;
       }
     }
 
-    this.pokes = temp[0]
+    // this.pokes = temp[0]
 
 
     
@@ -216,10 +216,6 @@ export class AppComponent {
 
 
     this.detail = pokemon;
-
-
-
-    console.log('You will be notified when the product goes on sale', pokemon);
   }
 
 }

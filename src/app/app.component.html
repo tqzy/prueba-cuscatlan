@@ -3,9 +3,10 @@
   <!-- <h1>PokeDex</h1> -->
   <app-top-bar></app-top-bar>
   <!-- <button type="button" class="btn btn-primary">GET DATA 1</button> -->
-  <div class="col-md-12" style="border-left: #edc23b 5px solid; border-right: #edc23b 5px solid; border-bottom: #edc23b 5px solid;">
-    <div class="row">
-      <div class="col-md-6" style=" height: 600px; background-color:  #ff0000;">
+  <div class="col-md-12"
+    style="border-left: #edc23b 5px solid; border-right: #edc23b 5px solid; border-bottom: #edc23b 5px solid;">
+    <div class="row row-reverse">
+      <div class="col-md-6 flip" style=" height: 600px; background-color:  #ff0000;">
         <form [formGroup]="checkoutForm">
           <div class="col-12 no-padding" style=" background-color:lavender; padding: 5px;">
             <div class="row no-padding">
@@ -13,14 +14,16 @@
                 <label for="name">
                   Search any pokemon:
                 </label>
-                <input class="form-control col-12" #box id="name" placeholder="pikachu" type="text" (keyup)="onKey(box.value)" formControlName="name">
+                <input class="form-control col-12" #box id="name" placeholder="pikachu" type="text"
+                  (keyup)="onKey(box.value)" formControlName="name">
               </div>
-              <div class="col-6" >
+              <div class="col-6">
                 <!-- <button (click)="applyFilter('')">filter</button> -->
-                <label >
+                <label>
                   Get by type:
                 </label>
-                <select class="form-control col-12" #mySelect formControlName="type" (change)="applyFilter(mySelect.value)">
+                <select class="form-control col-12" #mySelect formControlName="type"
+                  (change)="applyFilter(mySelect.value)">
                   <option disabled>Select type</option>
                   <option>No selection</option>
                   <option *ngFor="let suit of oppoSuits">{{suit}}</option>
@@ -29,19 +32,31 @@
             </div>
           </div>
         </form>
-        <cdk-virtual-scroll-viewport itemSize="100" (scrolledIndexChange)="nextBatch($event)" class=" col-12 example-viewport">
-          <div *cdkVirtualFor="let item of pokes" class="example-item">
-            <app-item-pokemon  [pokemon]="item" (notify)="onNotify(item)"  ></app-item-pokemon>
-          </div>
-        </cdk-virtual-scroll-viewport>
+        <div style="margin-top: -8px;" >
+          <mat-selection-list #shoes [multiple]="false">
+
+            <cdk-virtual-scroll-viewport itemSize="100" (scrolledIndexChange)="nextBatch($event)"
+              class=" col-12 example-viewport">
+              <!-- <div *cdkVirtualFor="let item of pokes" class="example-item"> -->
+              <!-- <app-item-pokemon [pokemon]="item" (notify)="onNotify(item)"></app-item-pokemon> -->
+
+              <mat-list-option *cdkVirtualFor="let item of pokes" [value]="item" [selected]="item.selected" style="height: 100px;">
+                <app-item-pokemon [pokemon]="item" (notify)="onNotify(item)"></app-item-pokemon>
+              </mat-list-option>
+              <!-- </div> -->
+            </cdk-virtual-scroll-viewport>
+          </mat-selection-list>
+        </div>
+
       </div>
       <div class="col-md-6" style=" height: 600px; overflow-y: auto; background-color:  #ff0000;">
-        <app-detail *ngIf="detail" [detail]="detail" ></app-detail>
+        <app-detail *ngIf="detail" [detail]="detail"></app-detail>
       </div>
     </div>
   </div>
 
-  <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+  <!-- <mat-slider min="1" max="100" step="1" value="1"></mat-slider> -->
+
 
   <router-outlet></router-outlet>
 </div>

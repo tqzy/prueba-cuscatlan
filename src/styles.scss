@@ -8,3 +8,9 @@
 body{
     background-color:skyblue;
 }
+
+@media (max-width:481px)  { 
+ body {
+     background-color: slategray;
+ }
+}
