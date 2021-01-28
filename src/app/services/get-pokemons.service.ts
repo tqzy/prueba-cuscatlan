@@ -13,7 +13,7 @@ export interface Config {
   key: any;
 }
 
-export interface poke {
+export interface Poke {
   url: string;
   name: string;
 }
@@ -25,19 +25,19 @@ export class GetPokemonsService {
 
   constructor(private http: HttpClient) { }
 
-  pokemons = <any[]>[];
-  result = <Config[]>[];
+  pokemons = [] as any[];
+  result = [] as Config[];
 
 
 
 
-  getPokemons() {
+  getPokemons(): void {
     this.http.get('https://pokeapi.co/api/v2/pokemon/').subscribe((res) => {
-      console.log("res 2", res);
+      console.log('res 2', res);
       // this.showResult = true;
 
     }, (error) => {
-      console.log("error", error);
+      console.log('error', error);
     });
   }
 
@@ -47,21 +47,21 @@ export class GetPokemonsService {
       .pipe(
         tap(product => {
           console.log('fetched products', product.results);
-          product.results.forEach((pokemon: poke) => {
-            console.log(pokemon.url)
+          product.results.forEach((pokemon: Poke) => {
+            console.log(pokemon.url);
             this.getPokemon(pokemon.url).subscribe(resp => {
               const res = { ...resp };
 
-              this.pokemons.push(res)
+              this.pokemons.push(res);
             });
             console.log('pokemons', this.pokemons);
-          })
+          });
         }),
         catchError(this.handleError('getProducts', []))
       );
   }
 
-  getList(url:string): Observable<any[]> {
+  getList(url: string): Observable<any[]> {
     return this.http.get<any>(url)
       .pipe(
         map(product => product),
@@ -90,7 +90,7 @@ export class GetPokemonsService {
   //         })
 
 
-          
+
 
   //       })
 
@@ -101,16 +101,16 @@ export class GetPokemonsService {
     return this.http.get<any[]>(url)
       .pipe(
         tap(pokemon => {
-          //console.log('pokemon', pokemon);
+          // console.log('pokemon', pokemon);
           return pokemon;
         }),
         catchError(this.handleError('getProducts', []))
       );
   }
-  
 
 
-  private handleError<T>(operation = 'operation', result?: T) {
+
+  private handleError<T>(operation = 'operation', result?: T): any {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure

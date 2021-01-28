@@ -8,7 +8,7 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
 })
 export class DetailComponent implements OnInit {
 
-  @Input() detail:any;
+  @Input() detail: any;
   constructor() { }
 
   ngOnInit(): void {

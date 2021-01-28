@@ -9,7 +9,7 @@ import { Output, EventEmitter } from '@angular/core';
 })
 export class ItemPokemonComponent implements OnInit {
 
-  @Input() pokemon:any;
+  @Input() pokemon: any;
   @Output() notify = new EventEmitter();
 
   constructor() { }

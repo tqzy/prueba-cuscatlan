@@ -44,7 +44,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     ReactiveFormsModule,
     ScrollingModule,
     HttpClientModule,
-    NgbPaginationModule, 
+    NgbPaginationModule,
     NgbAlertModule,
     BrowserModule,
     AppRoutingModule,
