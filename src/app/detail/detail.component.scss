@@ -3,3 +3,16 @@ img {
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
   }
+
+
+  .label-detail {
+    margin-top: 15px;
+    margin-left: 15px;
+    color: steelblue;
+    font-size: 1.5em;
+  }
+
+  .img-cont {
+    border: 4px solid #666666; 
+    background-color: lightgray;
+  }

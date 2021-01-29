@@ -25,8 +25,9 @@ export class AppComponent implements OnInit {
     address: '',
     type: ''
   });
-  oppoSuits: any = ['electric', 'grass'];
+  oppoSuits: any = ['electric', 'grass', 'fire', 'bug'];
   pagination = false;
+  error = false;
   detail = null;
 
 
@@ -94,7 +95,9 @@ export class AppComponent implements OnInit {
 
 
   getInitialData(url: string): void {
+    this.pagination = true;
     this.pokemons.getList(url).subscribe(resp => {
+      this.pagination = false;
       const config = { ...resp };
       let temp: any[] = [];
       temp = [...temp, resp];
@@ -115,6 +118,9 @@ export class AppComponent implements OnInit {
         });
       });
       console.log('pokes', this.pokes);
+    }, (err: any) => {
+      this.error = true;
+      console.log ('errorr', err);
     });
   }
 

@@ -1,35 +1,35 @@
-<div class="col-12" style="border: solid 1px #000; height: auto; background-color:whitesmoke;">
+<div class="col-12" style="height: auto; background-color:whitesmoke;">
 
-    <label><b>{{detail.name.toString().toUpperCase()}}</b></label>
-    <div class="text-center">
+    <label class="label-detail"><b>{{detail.name.toString().toUpperCase()}}</b></label>
+    <div class="text-center img-cont">
         <img class="col-md-10" src={{detail.sprites.front_default}}/>
     </div>
     
 
-    <table class="table table-bordered">
-        <thead>
+    <table class="table table-striped">
+        <thead class="thead-dark">
             <tr>
-                <td colspan="1"> <b>Base stat</b></td>
+                <td colspan="3" class="text-center"> <b>Base stat</b></td>
             </tr>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">base_stat</th>
                 <th scope="col">name</th>
+                <th scope="col">base_stat</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let stat of detail.stats; let i = index">
                 <th scope="row">{{i+1}}</th>
-                <td>{{stat.base_stat}}</td>
                 <td>{{stat.stat.name}}</td>
+                <td>{{stat.base_stat}}</td>
             </tr>
         </tbody>
     </table>
 
-    <table class="table table-bordered">
-        <thead>
+    <table class="table table-striped" >
+        <thead class="thead-dark">
             <tr>
-                <td colspan="1"> <b>Types</b></td>
+                <td colspan="3" class="text-center"> <b>Types</b></td>
             </tr>
             <tr>
                 <th scope="col">#</th>
@@ -44,10 +44,10 @@
         </tbody>
     </table>
 
-    <table class="table table-bordered">
-        <thead>
+    <table class="table table-striped" >
+        <thead class="thead-dark">
             <tr>
-                <td colspan="1"> <b>Moves</b></td>
+                <td colspan="3" class="text-center"> <b>Moves</b></td>
             </tr>
             <tr>
                 <th scope="col">#</th>

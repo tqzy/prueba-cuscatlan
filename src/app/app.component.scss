@@ -22,8 +22,34 @@ h1 {
   margin: 0;
 } 
 
+:host ::ng-deep .mat-list-item-content { padding: 0!important; }
+
+.mobile-label {
+  margin-top: 0;
+}
+
 .row-reverse {
   flex-direction: row;
+}
+
+.cont-detail {
+  height: 600px;
+  overflow-y: auto;
+  //background-color:  #ff0000;
+  //background-color:  #2b37b7;
+  background-color: steelblue;
+  
+}
+
+.cont-main {
+  border-left: #edc23b 5px solid; 
+  border-right: #edc23b 5px solid; 
+  border-bottom: #edc23b 5px solid;
+}
+
+.cont-left {
+  height: 600px; 
+  background-color:  steelblue;
 }
 
 @media (max-width:481px)  { 
@@ -32,5 +58,16 @@ h1 {
   } 
   .flip {
     order: 13;
+  }
+  .mobile-label {
+    margin-top: 20%;
+  }
+  .example-viewport {
+    height: 495px;
+  }
+  .cont-detail {
+    height: 400px;
+    border-bottom: 5px solid #edc23b;
+    
   }
 }

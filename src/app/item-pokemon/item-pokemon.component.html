@@ -1,15 +1,15 @@
 <!-- <label>nombre  </label>   {{pokemon.name}} <br>
 <label>experience  </label>   {{pokemon.base_experience}} -->
-<div class="col-12" style="border-bottom: 1px solid #ffd62a; height: 100%; cursor: pointer;" (click)="notify.emit()">
+<div class=" no-padding " style="height: 100px; width: 110%; cursor: pointer;" (click)="notify.emit()">
     <div class="row" style="height: 100%;" >
-        <div class="col-4" *ngIf="pokemon.sprites.front_default">
-            <img class="col-12" src={{pokemon.sprites.front_default}} />
+        <div class="col-4 text-center" *ngIf="pokemon.sprites.front_default">
+            <img class="poke-image" src={{pokemon.sprites.front_default}} />
         </div>
-        <div class="col-8" style="height: 100%;">
+        <div class="col-8  no-padding" style="height: 100%;">
             <label style="margin-top: 7px;"><b>{{pokemon.name.toString().toUpperCase()}}</b></label>
-            <div  class="col-12">
-                <div class="row">
-                    <ul class="list-group col-6" style="list-style-type: none; font-size: 16px;">
+            <div  class="col-12 no-padding ">
+                <div class="row no-padding ">
+                    <ul class="list-group col-6 cont-info">
                         <li>
                             <span class="badge badge-primary badge-pill">{{pokemon.base_experience}}</span>
                             Experience
@@ -20,7 +20,7 @@
                         </li>
                         
                     </ul>
-                    <ul class="list-group col-6" style="list-style-type: none; font-size: 16px;">
+                    <ul class="list-group col-6 cont-info">
                         <li >
                             <span class="badge badge-secondary badge-pill">{{pokemon.height}}</span>
                             Height

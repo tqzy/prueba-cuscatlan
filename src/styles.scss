@@ -6,11 +6,17 @@
 
 
 body{
-    background-color:skyblue;
+    // background-color:skyblue;
+    background-color: lightsteelblue;
 }
 
 @media (max-width:481px)  { 
  body {
      background-color: slategray;
  }
+}
+
+
+.debug {
+    border: 1px solid #000;
 }
