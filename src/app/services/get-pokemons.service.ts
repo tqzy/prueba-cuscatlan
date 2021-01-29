@@ -57,8 +57,11 @@ export class GetPokemonsService {
       console.error(error); // log to console instead
 
       // Let the app keep running by returning an empty result.
-      throw new Error('My Error');
-      // return of(result as T);
+      if (operation == 'list'){
+        throw new Error('My Error');
+      }
+      
+      return of(result as T);
     };
   }
 }
